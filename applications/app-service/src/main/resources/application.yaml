@@ -11,6 +11,12 @@ spring:
       path: "/h2"
   profiles:
     include: null
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/e7c91a18-425d-4820-aedf-09d9c1c63cd7/v2.0
+          jwk-set-uri: https://login.microsoftonline.com/e7c91a18-425d-4820-aedf-09d9c1c63cd7/discovery/v2.0/keys
 management:
   endpoints:
     web:
@@ -22,3 +28,8 @@ management:
         enabled: true
 cors:
   allowed-origins: "http://localhost:4200,http://localhost:8080"
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
